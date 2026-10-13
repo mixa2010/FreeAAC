@@ -79,7 +79,6 @@ export default function PageRoute() {
 
   const savePage = async (page: BoardPage) => {
     if (!currentPageId) return handleError("Could not save page - ID undefined")
-    console.log("Saving page", page)
     setPage(page)
     const path = pages.find((p) => p.id === page.id)?.path
     if (!path) return handleError("Could not save page - no path found")
