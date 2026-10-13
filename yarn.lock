@@ -3727,9 +3727,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@willwade/aac-processors@npm:^0.3.7":
-  version: 0.3.7
-  resolution: "@willwade/aac-processors@npm:0.3.7"
+"@willwade/aac-processors@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@willwade/aac-processors@npm:0.4.0"
   dependencies:
     "@types/xml2js": "npm:^0.4.14"
     adm-zip: "npm:^0.5.16"
@@ -3745,7 +3745,7 @@ __metadata:
     yauzl: "npm:^3.2.0"
   bin:
     aac-processors: dist/cli/index.js
-  checksum: 10c0/fb71955aa185daa05191fef5435cb85de7f9905378bf7d073d4b003c4da40c21f30b1351b110e3c31db74042a33e41e702eaa8b85824486c4451cd14f8f35466
+  checksum: 10c0/987fc3cc51039ba753e385eb96e4eb06d16452e279929176eaa2f7c8b4786d0e76567010f1581531a1be0b2f275bb4f14cb2632112b10ccaef41acbe79390b3d
   languageName: node
   linkType: hard
 
@@ -6943,7 +6943,7 @@ __metadata:
     "@react-navigation/native": "npm:^7.1.8"
     "@tanstack/react-query": "npm:^5.90.21"
     "@types/react": "npm:~19.2.10"
-    "@willwade/aac-processors": "npm:^0.3.7"
+    "@willwade/aac-processors": "npm:^0.4.0"
     eslint: "npm:^9.0.0"
     eslint-config-expo: "npm:~57.0.2"
     eslint-config-prettier: "npm:^10.1.8"
