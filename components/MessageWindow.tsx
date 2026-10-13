@@ -302,6 +302,7 @@ export default function MessageWindow({
                     <Button
                       variant="ghost"
                       onPress={() => {
+                        setCopiedMessage(undefined)
                         removeLastMessageButton()
                         logEvent(
                           { type: "backspace" },
@@ -316,6 +317,7 @@ export default function MessageWindow({
                   <Button
                     variant="ghost"
                     onPress={() => {
+                      setCopiedMessage(undefined)
                       clearMessageButtons()
                       logEvent(
                         { type: "clear" },
