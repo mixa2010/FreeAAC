@@ -22,7 +22,7 @@
     "@react-navigation/elements": "^2.6.3",
     "@react-navigation/native": "^7.1.8",
     "@tanstack/react-query": "^5.90.21",
-    "@willwade/aac-processors": "^0.2.16",
+    "@willwade/aac-processors": "^0.3.7",
     "events": "^3.3.0",
     "expo": "^57.0.28",
     "expo-application": "~57.0.3",
