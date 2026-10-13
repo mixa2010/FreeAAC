@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Modal, StyleSheet, TextInput, View } from "react-native"
 import {
   FONT_SIZE,
@@ -29,7 +29,11 @@ export default function DialogRename({
 }) {
   const theme = useTheme()
   const [text, setText] = useState(initialText)
-  useEffect(() => setText(initialText), [initialText, visible])
+  const [prevInitialText, setPrevInitialText] = useState(initialText)
+  if (initialText !== prevInitialText) {
+    setPrevInitialText(initialText)
+    setText(initialText)
+  }
   const cancel = () => {
     setText(initialText)
     onCancel()
