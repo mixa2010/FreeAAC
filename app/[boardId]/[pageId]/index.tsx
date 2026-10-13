@@ -54,7 +54,7 @@ export default function PageRoute() {
     ;(async () => {
       try {
         if (!currentPageId || !path) return
-        const pageObject = await loadPage(id, currentPageId, path)
+        const pageObject = await loadPage(id, path, currentPageId)
         setPage(pageObject)
       } catch (e) {
         handleError(e)
