@@ -116,10 +116,10 @@ We want to build on the shoulders of those who came before by combining the best
 To run locally with live reloading:
 
 ```
-npm install
-npm run web
-npm run android
-npm run ios
+yarn install
+yarn web
+yarn android
+yarn ios
 ```
 
 To build an Android .apk package:
