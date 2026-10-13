@@ -2,14 +2,15 @@
   "name": "freeaac",
   "main": "expo-router/entry",
   "version": "1.0.0",
+  "packageManager": "yarn@4.18.1",
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web",
-    "lint": "npx eslint",
-    "deploy:web": "npx expo export --platform web && cp dist/index.html dist/404.html && npm run buildSW",
+    "lint": "eslint",
+    "deploy:web": "expo export --platform web && cp dist/index.html dist/404.html && yarn buildSW",
     "buildSW": "workbox generateSW workbox-config.js"
   },
   "dependencies": {
@@ -80,5 +81,13 @@
     "typescript-eslint": "^8.0",
     "workbox-cli": "^7.4.1"
   },
-  "private": true
+  "private": true,
+  "dependenciesMeta": {
+    "better-sqlite3": {
+      "built": true
+    },
+    "unrs-resolver": {
+      "built": true
+    }
+  }
 }
