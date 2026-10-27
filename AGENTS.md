@@ -28,4 +28,4 @@ Offline-first AAC app for Android/iOS/web. Expo SDK 55 + Expo Router, React Nati
 - `app.json` enables `reactCompiler` and `typedRoutes`; route strings are type-checked against generated types while the dev server runs.
 - Web-only APIs (OPFS, `window`) belong only in `utils/io.ts`; shared code must go through the `.native.ts` twins.
 - Formatting: Prettier `semi: false` + `experimentalTernaries`; ESLint ignores `dist/`, `android/`, `ios/`, `*.cjs`. VSCode runs fixAll/organizeImports on save.
-- CI: push to `main`/`deploy-web` lints and deploys web to GitHub Pages; Android build/submit is manual `workflow_dispatch` in `deploy-android.yml`.
+- CI: push to `main`/`deploy-web` lints and deploys web to GitHub Pages (`deploy-web.yml`); every PR lints, builds the web export, and publishes a Cloudflare Pages preview at `https://pr-<number>.freeaac.pages.dev` with a sticky comment, deleted on close (`preview-web.yml`, needs `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID` secrets). Android build/submit is manual `workflow_dispatch` in `deploy-android.yml`.
