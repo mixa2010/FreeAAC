@@ -15,7 +15,7 @@ import {
   Trash2,
   X,
 } from "lucide-react-native"
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import { Platform, ScrollView, View } from "react-native"
 import Toast from "react-native-toast-message"
 import { useSpeak } from "../stores/audio"
@@ -68,7 +68,7 @@ export default function MessageWindow({
   const { boardId, pageId } = useLocalSearchParams()
   const debounce = useDebounce()
   const optionsSheet = useRef<TrueSheet>(null)
-  const [copied, setCopied] = useState(false)
+  const [copiedMessage, setCopiedMessage] = useState<string>()
   const [exitTapCount, setExitTapCount] = useState(0)
   const [showSetDefaultPageDialog, setShowSetDefaultPageDialog] =
     useState(false)
@@ -101,10 +101,9 @@ export default function MessageWindow({
 
   const copyMessage = async () => {
     const success = await Clipboard.setStringAsync(message)
-    if (success) setCopied(true)
+    if (success) setCopiedMessage(message)
     logEvent({ type: "copy" }, pageId as string, boardId as string)
   }
-  useEffect(() => setCopied(false), [message])
 
   const playMessage = () =>
     debounce(() => {
@@ -291,7 +290,7 @@ export default function MessageWindow({
                 <>
                   {showShareButton && (
                     <Button variant="ghost" onPress={copyMessage}>
-                      {copied ?
+                      {copiedMessage === message ?
                         <CopyCheck
                           size={ICON_SIZE.xl}
                           color={theme.onSurface}
@@ -303,6 +302,7 @@ export default function MessageWindow({
                     <Button
                       variant="ghost"
                       onPress={() => {
+                        setCopiedMessage(undefined)
                         removeLastMessageButton()
                         logEvent(
                           { type: "backspace" },
@@ -317,6 +317,7 @@ export default function MessageWindow({
                   <Button
                     variant="ghost"
                     onPress={() => {
+                      setCopiedMessage(undefined)
                       clearMessageButtons()
                       logEvent(
                         { type: "clear" },
