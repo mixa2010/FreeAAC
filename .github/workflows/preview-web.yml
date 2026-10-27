@@ -31,13 +31,15 @@ jobs:
         uses: actions/setup-node@v6
 
       - name: 📦 Install dependencies
-        run: npm ci
+        run: |
+          corepack enable
+          yarn install --immutable
 
       - name: 🧹 Lint
-        run: npm run lint
+        run: yarn lint
 
       - name: 🌐 Build static web export
-        run: npm run deploy:web
+        run: yarn deploy:web
 
       - name: 📦 Upload build artifact
         uses: actions/upload-artifact@v7
@@ -50,6 +52,10 @@ jobs:
         id: deploy
         if: github.event.pull_request.head.repo.full_name == github.repository
         uses: cloudflare/wrangler-action@v4
+        env:
+          # wrangler-action installs wrangler with `yarn add`, which Yarn 4
+          # rejects in CI because it would rewrite the lockfile.
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

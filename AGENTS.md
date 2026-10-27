@@ -4,11 +4,11 @@ Offline-first AAC app for Android/iOS/web. Expo SDK 55 + Expo Router, React Nati
 
 ## Commands
 
-- `npm install` (CI uses `npm ci`); dev: `npm run web` / `npm run android` / `npm run ios`.
-- `npm run lint` — the only automated check, also run by web CI. No test suite and no test/typecheck script; do not invent `npm test`.
-- `npx tsc --noEmit` passes but is not run by CI; `npm run lint` is the only automated check.
-- `npm run deploy:web` — static export, copies `dist/index.html` to `404.html`, regenerates the workbox service worker.
-- `npm run reset-project` is stale (missing `scripts/reset-project.js`); don't run it.
+- `corepack enable` once, then `yarn install --immutable` (CI uses that); dev: `yarn web` / `yarn android` / `yarn ios`.
+- `yarn lint` — the only automated check, also run by web CI. No test suite and no test/typecheck script; do not invent `yarn test`.
+- `yarn tsc --noEmit` passes but is not run by CI; `yarn lint` is the only automated check.
+- `yarn deploy:web` — static export, copies `dist/index.html` to `404.html`, regenerates the workbox service worker.
+- `yarn reset-project` is stale (missing `scripts/reset-project.js`); don't run it.
 - Native releases via EAS (see `eas.json`, README): `eas build -p android --profile preview --local`, `eas build --platform all --auto-submit`.
 
 ## Architecture
